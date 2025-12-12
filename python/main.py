@@ -420,27 +420,27 @@
 
 # ---------------- Методы наборов -----------------------
 
-set_one = {"800x620", "1920x1080"}
-# print(set_one)
-set_two = {"1024x768", "800x620"}
-# print(set_one.union(set_two))
-# print(set_one|set_two)
-common_set = set_one.intersection(set_two)
-print(common_set)
+# set_one = {"800x620", "1920x1080"}
+# # print(set_one)
+# set_two = {"1024x768", "800x620"}
+# # print(set_one.union(set_two))
+# # print(set_one|set_two)
+# common_set = set_one.intersection(set_two)
+# print(common_set)
 
 
-nums = {1, 2, 3}
-other_nums = {0, 1, 15, 13, 2, 3}
-print(nums.issubset(other_nums))
-print(other_nums.issuperset(nums))
+# nums = {1, 2, 3}
+# other_nums = {0, 1, 15, 13, 2, 3}
+# print(nums.issubset(other_nums))
+# print(other_nums.issuperset(nums))
 
-set_1 = {"a", "t", "s", "l"}
-set_2 = {"j", "g", "s", "t", "l"}
+# set_1 = {"a", "t", "s", "l"}
+# set_2 = {"j", "g", "s", "t", "l"}
 
-print(set_1.difference(set_2))
-print(set_2.difference(set_1))
-set_2.remove("j")
-set_3 = set_2.copy()
-print(set_2)
-print(set_3)
-print(set_1.symmetric_difference(set_2)) # (a | b) - (a & b)
+# print(set_1.difference(set_2))
+# print(set_2.difference(set_1))
+# set_2.remove("j")
+# set_3 = set_2.copy()
+# print(set_2)
+# print(set_3)
+# print(set_1.symmetric_difference(set_2)) # (a | b) - (a & b)
