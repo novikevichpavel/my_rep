@@ -444,3 +444,228 @@
 # print(set_2)
 # print(set_3)
 # print(set_1.symmetric_difference(set_2)) # (a | b) - (a & b)
+
+
+
+
+# -------------------- Диапозоны ------------------------
+
+# Упорядоченная неизменяемая последовательность элементов
+
+# my_range = range(7)
+# print(type(my_range))
+# print(my_range)
+# print(list(my_range))
+
+# new_range = range(10, 20, 3) # 10 - sart value; 20 - end value; 3 - step iterartion;
+# print(list(new_range))
+# print(new_range[3])
+
+
+# Опциональное задание по диапозонам:
+# Создать диапозон. Выполнить по нему итерацию, а значения записат ьв список
+
+# new_list = []
+# for n in range(0,20, 5):
+#     new_list.append(n)
+#     # print(new_list)
+
+# print(new_list)
+
+
+
+# Резюме по типам последовательностей. Сравнение типов последовательностей
+# Список - изменяемый; важен порядок; может содержать одинаковые элементы;
+# Кортежи - неизменяемый; важен порядок; может содержать одинаковые элементы; 
+# Наборы - изменяемый; порядок не важен; не может содержать одинаковые элементы;
+# Дипозон - неизменяемый; порядок важен; не может содержать одинаковые элементы; 
+# Словарь - Изменяемый; не важен порядок; не может содержать одинаковые элементы; 
+# Строка - неизменяемая; порядок важен; можт содержать одинаковые элементы; 
+
+
+
+
+
+
+
+
+
+
+# -------------------------- Функция ZIP ----------------------------
+# Позволяет формировать объекты на основне другз последовтельностей
+
+# names = ['Pavel', 'Polina', 'Oksana']
+# surnames = ['Novikevich', 'Kazakevich', 'Plaska']
+# is_adult = [True, False, True]
+
+# user_names = zip(names, surnames, is_adult)
+
+# print(user_names)
+# print(list(user_names)) # Список кортежей
+
+# key_names = ['his_age', 'her_age', 'its_age']
+# ids = [66, 764, 244534]
+
+# dict_new = zip(key_names, ids)
+
+# print(dict(dict_new))
+
+
+
+
+
+# Опциональное задание. Создать два списка, с названием товаров и ценой. Конвертировать сначала в словарь, потмо в спиоск и вывести все в терминал
+
+# item_names = ['кресло', 'диван', 'ковер']
+# item_price = [460, 1340, 185]
+# zipped_items  = zip(item_names, item_price)
+# print(list(zipped_items))
+# print(dict(zipped_items))
+
+
+
+
+
+
+# -------------------------- Избежание изменений копий ------------------
+
+# В этом варианте начальный словарь изменен не будет
+# main_info = {
+#     'name': 'Polina',
+#     'is_instructor': False
+# }
+
+# copied_info = main_info.copy()
+# copied_info['reviews_qty'] = 5
+# print(main_info)
+# print(copied_info)
+
+
+# # Если словарь содержит вложенные элементы - ссылки на них сохраняются. А это значит, что при изменении вложенного элемента - также изменен будет первоначальный словарь. То есть метод copy() дает копию первого уровня.
+
+# info = {
+#     'name': 'Pavel',
+#     'is_instructor': False,
+#     'reviews': []
+# }
+
+# info_copy = info.copy()
+# info_copy['reviews'].append('great course')
+
+# print(info)
+# print(info_copy)
+
+
+
+
+# Для возможности копирования вложенных элемнтов необходимо использовать бибилиотеку deepcopy
+
+# from copy import deepcopy
+
+# general_info = {
+#     'name': 'Pavel',
+#     'is_instructor': False,
+#     'reviews': []
+# }
+
+# copy_info = deepcopy(general_info)
+
+# copy_info['reviews'].append('Wow. That`s great')
+
+# print(general_info)
+# print(copy_info)
+
+
+ 
+
+
+
+
+
+
+
+
+
+# ------------------------------ Функции -----------------------------
+
+# a = int(input('Num one: '))
+# b = int(input('Num two: '))
+
+# def calc_nums(a, b): # Аргументы
+#     c = a + b
+#     return f'Your result is {c}'
+
+# print(calc_nums(a, b))
+
+
+
+# Передача изменяемых объектов в функцию
+# В этом примере изменится внешний объект словаря
+
+def increase_person_age(person):
+    person['person_age'] += 1
+    return person
+
+person_one = {
+    'name': 'Pavel',
+    'person_age': 26
+}
+
+increase_person_age(person_one)
+print(person_one)
+
+
+# Вариант без изменениявнешного объекта
+
+def increase_age(person):
+    person_copy = person_one.copy()
+    person_copy['person_age'] += 1
+    return person_copy
+
+new_person = increase_age(person_one)
+print(new_person)
+print(person_one)
+
+
+
+
+
+
+# Объединения аргументов в кортеж(tuple). Аргументов можнет передаваться, в таком случае, большое количество
+
+def sum_nums(*args):
+    return sum(args)
+
+print(sum_nums(1, 2, 4))
+
+
+# Позиционнеы аргументы. В них порядок важен
+
+# def get_posts_info(name, posts_qty):
+#     info = f'{name} wrote {posts_qty} posts'
+#     return info
+
+# print(get_posts_info('Pavel', 25))
+
+
+
+# Аргументы с ключевыми словами(именованные). В них порядок не важен. Используюся для лучшей читабельности
+
+def get_posts_info(name, posts_qty):
+    info = f'{name} wrote {posts_qty} posts'
+    return info
+
+print(get_posts_info(name='Pavel', posts_qty=25))
+print(get_posts_info(posts_qty=25, name='Pavel'))
+
+
+# Объединение аргументов в словарь
+
+def get_info_about_posts(**person):
+    info = (
+        f'{person['name']} wrote '
+        f'{person['posts_qty']} posts'
+    )
+    return info
+
+print(get_info_about_posts(name='Pavel', posts_qty=25))
