@@ -602,29 +602,29 @@
 # Передача изменяемых объектов в функцию
 # В этом примере изменится внешний объект словаря
 
-def increase_person_age(person):
-    person['person_age'] += 1
-    return person
+# def increase_person_age(person):
+#     person['person_age'] += 1
+#     return person
 
-person_one = {
-    'name': 'Pavel',
-    'person_age': 26
-}
+# person_one = {
+#     'name': 'Pavel',
+#     'person_age': 26
+# }
 
-increase_person_age(person_one)
-print(person_one)
+# increase_person_age(person_one)
+# print(person_one)
 
 
-# Вариант без изменениявнешного объекта
+# # Вариант без изменениявнешного объекта
 
-def increase_age(person):
-    person_copy = person_one.copy()
-    person_copy['person_age'] += 1
-    return person_copy
+# def increase_age(person):
+#     person_copy = person_one.copy()
+#     person_copy['person_age'] += 1
+#     return person_copy
 
-new_person = increase_age(person_one)
-print(new_person)
-print(person_one)
+# new_person = increase_age(person_one)
+# print(new_person)
+# print(person_one)
 
 
 
@@ -633,10 +633,10 @@ print(person_one)
 
 # Объединения аргументов в кортеж(tuple). Аргументов можнет передаваться, в таком случае, большое количество
 
-def sum_nums(*args):
-    return sum(args)
+# def sum_nums(*args):
+#     return sum(args)
 
-print(sum_nums(1, 2, 4))
+# print(sum_nums(1, 2, 4))
 
 
 # Позиционнеы аргументы. В них порядок важен
@@ -651,21 +651,144 @@ print(sum_nums(1, 2, 4))
 
 # Аргументы с ключевыми словами(именованные). В них порядок не важен. Используюся для лучшей читабельности
 
-def get_posts_info(name, posts_qty):
-    info = f'{name} wrote {posts_qty} posts'
-    return info
+# def get_posts_info(name, posts_qty):
+#     info = f'{name} wrote {posts_qty} posts'
+#     return info
 
-print(get_posts_info(name='Pavel', posts_qty=25))
-print(get_posts_info(posts_qty=25, name='Pavel'))
+# print(get_posts_info(name='Pavel', posts_qty=25))
+# print(get_posts_info(posts_qty=25, name='Pavel'))
 
 
-# Объединение аргументов в словарь
+# # Объединение аргументов в словарь
 
-def get_info_about_posts(**person):
-    info = (
-        f'{person['name']} wrote '
-        f'{person['posts_qty']} posts'
-    )
-    return info
+# def get_info_about_posts(**person):
+#     info = (
+#         f'{person['name']} wrote '
+#         f'{person['posts_qty']} posts'
+#     )
+#     return info
 
-print(get_info_about_posts(name='Pavel', posts_qty=25))
+# print(get_info_about_posts(name='Pavel', posts_qty=25))
+
+
+
+
+# ------------------------ Значения параметров функции по умолчанию -----------------------------
+# Используется для передачи параметрам аргументов на случай, если они не будут переданы при вызыве функции. Если при вызыве функции будет передан аргумент на место значения по умолчанию - оно будет перезаписано(не удет использовано). 
+
+# def mul_by_factor(value, multiplayer=1):
+#     return value * multiplayer
+
+# print(mul_by_factor(10, 2))
+# print(mul_by_factor(5))
+
+
+# from datetime import date 
+
+
+# def get_weekday():
+#     return date.today().strftime('%A. %d %B')
+
+
+# def create_new_post(post, weekday=get_weekday()):
+#     post_copy = post.copy()
+#     post_copy['create_at'] = weekday
+#     return post_copy
+
+
+# original_post = {
+#     'id': 243,
+#     'author': 'Pavel'
+# }
+
+# updated_post = create_new_post(post=original_post)
+
+# print(updated_post)
+
+
+
+
+
+
+
+
+
+
+# ------------------------------ КОЛБЭК ФУНКЦИИ ------------------------
+# Колбэк функция - это функция, которая передается как аргумент в другую функцию и там вызывается. То есть она не вызывается напрямую, а это делается внутри другой функции. 
+
+
+# def print_num_info(num):
+#     if (num % 2) == 0:
+#         print('Entered num is even')
+#     else:
+#         print('Entered num is odd')
+
+
+# def square_of_num(num):
+#     print(num * num)
+    
+
+
+# def procces_info(num, collback_fn):
+#     return collback_fn(num)
+
+
+# entered_num = int(input('Enter your num: '))
+
+# print(procces_info(num=entered_num, collback_fn=print_num_info))
+# print(procces_info(num=entered_num, collback_fn=square_of_num))
+
+
+
+
+
+
+# Создана функция send_data, которая отправляет какие-либо данные на сервер удаленный
+
+# def send_data(data):
+#     # code that is sending to the remote server
+#     pass
+
+
+# # Создана функция, которая принимает в себя аргументы в виде данных о пользователе и колбэк функцию send_data (будет передана в параметр send_data_fn) 
+
+# def process_data(input_data, send_data_fn):
+#     # Выполнения копирования введенных данных 
+#     updated_data = input_data.copy()
+#     # actions with dates
+#     # Вызов параметра send_data_fn, в который передана функция send_data. При вызове функции передан параметр updated_data, который был обновлен от параметра input_data
+#     send_data_fn(updated_data)
+
+# process_data({'name': 'Pavel'}, send_data)
+
+
+
+
+
+
+
+
+# ---------------------------- Правила работы с функциями -----------------------------
+
+# 1. Называть функции следует исходя из выполняемых задач
+# 2. Название функции должно начинаться с глагола
+# 3. Одна функция выполняет одну задачу
+# 4. Не рекомендуется изменять внешние относительно функции переменные
+
+
+
+
+
+# Docstring
+# def mult_by_factor(value, mult=1):
+#     '''Multiplies number by multiplicator'''
+#     return value * mult
+
+# mult_by_factor(5)
+
+            
+
+
+# Области видмости переменных
+# Если созданы две одинаковых переменных в локальной(прим. в функции) и глобальной области видимости - функция будет использоватьcя локальная. Если в локальной области видимости переменной нет - будет использоваться переменная из глобальной областии видимости
