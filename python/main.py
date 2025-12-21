@@ -1006,19 +1006,19 @@
 # Создание ошибок
 
 
-def devide_nums(a, b):
-    if b == 0:
-        raise TypeError('you cannot devide by zero!')
-    return a / b
+# def devide_nums(a, b):
+#     if b == 0:
+#         raise TypeError('you cannot devide by zero!')
+#     return a / b
 
-while True:
-    try:
-        a = int(input('Enter first num: '))
-        b = int(input('Second num: '))
-        print(devide_nums(a, b))
-        break
-    except TypeError as e:
-        print(e)
+# while True:
+#     try:
+#         a = int(input('Enter first num: '))
+#         b = int(input('Second num: '))
+#         print(devide_nums(a, b))
+#         break
+#     except TypeError as e:
+#         print(e)
 
 
 
@@ -1030,3 +1030,72 @@ while True:
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Распаковка списков и кортежей -=-=-=-=-=-=-=-=-=-=-=-=
 
+# Можно передать и кортеж
+
+# my_friuts = ['banana', 'apple', 'lime']
+
+# banana, apple, lime = my_friuts
+
+# print(banana)
+# print(apple)
+# print(lime)
+
+
+# other_fruits = ['coconut', 'pinapple', 'peach']
+
+# my_peach, *ramaining_fruits = other_fruits
+
+# print(my_peach)
+# print(ramaining_fruits)
+
+
+
+# Распаковка словаря в именованые аргументы 
+
+# user_profile = {
+#     'name': 'Pavel',
+#     'surname': 'Novikevich',
+#     'comments_qty': 23,
+#     'is_collegue': True,
+#     'id': 325256753
+# } 
+
+# def user_info(name, comments_qty=0, **args):
+#     if not comments_qty:
+#         return f'{name} does not have comments'
+#     return f'{name} has {comments_qty} comments'
+
+# print(user_info(**user_profile))
+
+
+
+# # Распаковка списка в позиционные аргументы функции
+
+# my_list = ['Pavel', 23, 'Novikevich']
+
+# def get_user_info(name, num, surname):
+#     if not num:
+#         return f'{name} has no comments'
+#     return f'{name} has {num} commnets. And his surname is {surname}'
+
+# print(get_user_info(*my_list))
+
+
+
+
+
+
+
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-= Тернарный оператор в пайтон -=-=-=-=-=-=-=-=-=-=-=-==-=-=
+
+# Выражение_1 if Условие else Выражение_2
+
+a = 5
+b = 8
+print("This is true" if a > b else "No. You are fucking layer")
+
+
+my_number = 21.5
+print("is int") if type(my_number) is int else print("is not int")
