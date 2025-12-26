@@ -1092,10 +1092,74 @@
 
 # Выражение_1 if Условие else Выражение_2
 
-a = 5
-b = 8
-print("This is true" if a > b else "No. You are fucking layer")
+# a = 5
+# b = 8
+# print("This is true" if a > b else "No. You are fucking layer")
 
 
-my_number = 21.5
-print("is int") if type(my_number) is int else print("is not int")
+# my_number = 21.5
+# print("is int") if type(my_number) is int else print("is not int")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Циклы =-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+# my_fruits = ['apple', 'banana', 'lime']
+
+# for i in my_fruits:
+#     print(i)
+
+
+# my_object = {
+#     "x": 10,
+#     "y": True,
+#     "z": "abc"
+# }
+
+# for key in my_object:
+#     print(f"Key: {key}, value: {my_object[key]}")
+
+# # Аналог 1
+# for item in my_object.items():
+#     k, v = item
+#     print(k, v)
+
+# # Аналог 2
+# for key, value in my_object.items():
+#     print(key, value)
+
+
+
+ 
+
+
+
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=- Цикл While -=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=
+
+import random
+
+random_num = random.randint(1, 10)
+
+while True:
+    num = int(input("Guess the number rom one to ten. Enter your num:"))
+    if num is not random_num:
+        print("Try again")
+        continue
+    print("You are so cool!", random_num)
+    break
