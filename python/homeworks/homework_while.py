@@ -1,6 +1,6 @@
 def devide_num(a, b):
     if b == 0:
-         raise ZeroDivisionError("Pay attention. You're trying devide by zero! Exchange second argument and ty again")
+         raise ZeroDivisionError("Pay attention. You're trying devide by zero! Exchange second argument and try again")
     return a / b
 
 
