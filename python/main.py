@@ -1152,14 +1152,45 @@
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=- Цикл While -=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=
 
-import random
+# import random
 
-random_num = random.randint(1, 10)
+# random_num = random.randint(1, 10)
 
-while True:
-    num = int(input("Guess the number rom one to ten. Enter your num:"))
-    if num is not random_num:
-        print("Try again")
-        continue
-    print("You are so cool!", random_num)
-    break
+# while True:
+#     num = int(input("Guess the number rom one to ten. Enter your num:"))
+#     if num is not random_num:
+#         print("Try again")
+#         continue
+#     print("You are so cool!", random_num)
+#     break
+
+
+
+
+
+
+
+
+
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-= Сокращенный цикл for in =-=-=-=-=-=-=-=-=-=-=-=-=-
+
+# Используется для создания новых последовательностей (списк, словари, кортежи, ноборы)
+
+
+my_dict = [3, 11, 15, 177, 2, 4, -1, -41, -4565]
+my_list = [num for num in my_dict if num > 15 or num < -50] 
+print(my_list)
+
+
+big_list = [num * 2 for num in my_dict if num > 15]
+print(big_list)
+
+
+person = {
+    "name": "Pavel",
+    "age": 26
+}
+person_list = [(k, v * 2) for k, v in person.items() if type(v) is int]
+print(person_list)
