@@ -1180,9 +1180,9 @@
 
 
 
-my_dict = [3, 11, 15, 177, 2, 4, -1, -41, -4565, 17]
-my_list = [num for num in my_dict if num > 15 or num < -50] 
-print(my_list)
+# my_dict = [3, 11, 15, 177, 2, 4, -1, -41, -4565, 17]
+# my_list = [num for num in my_dict if num > 15 or num < -50] 
+# print(my_list)
 
 
 # big_list = [num * 2 for num in my_dict if num > 15]
@@ -1225,3 +1225,12 @@ print(my_list)
 # his_car.move()
 # his_car.stop()
 
+
+import json
+
+with open("python/country.json", "r") as country_info:
+    # get_data = country_info.read()
+    # parse_data = json.loads(get_data)
+    parse_data = json.load(country_info)
+    # Вместо двух закомменченых строк
+    print(parse_data)
