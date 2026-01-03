@@ -1179,18 +1179,58 @@
 # Используется для создания новых последовательностей (списк, словари, кортежи, ноборы)
 
 
-my_dict = [3, 11, 15, 177, 2, 4, -1, -41, -4565]
-my_list = [num for num in my_dict if num > 15 or num < -50] 
-print(my_list)
+
+# my_dict = [3, 11, 15, 177, 2, 4, -1, -41, -4565, 17]
+# my_list = [num for num in my_dict if num > 15 or num < -50] 
+# print(my_list)
 
 
-big_list = [num * 2 for num in my_dict if num > 15]
-print(big_list)
+# big_list = [num * 2 for num in my_dict if num > 15]
+# print(big_list)
 
 
-person = {
-    "name": "Pavel",
-    "age": 26
-}
-person_list = [(k, v * 2) for k, v in person.items() if type(v) is int]
-print(person_list)
+
+# person = {
+#     "name": "Pavel",
+#     "age": 26
+# }
+# person_list = [(k, v * 2) for k, v in person.items() if type(v) is int]
+# print(person_list)
+
+
+
+
+
+
+
+# -=-=-=-=-=-=-=-=-=-===-==-=- Классы -=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+# class Car: 
+#     def __init__(self, name):
+#         self.name = name
+
+#     def move(self):
+#         print(self.name, "Car is moving")
+
+#     def stop(self):
+#         print("Car stopped")
+
+# my_car = Car("My Car")
+# his_car = Car("His Car")
+
+# my_car.move()
+# my_car.stop()
+
+# his_car.move()
+# his_car.stop()
+
+
+import json
+
+with open("python/country.json", "r") as country_info:
+    # get_data = country_info.read()
+    # parse_data = json.loads(get_data)
+    parse_data = json.load(country_info)
+    # Вместо двух закомменченых строк
+    print(parse_data)
