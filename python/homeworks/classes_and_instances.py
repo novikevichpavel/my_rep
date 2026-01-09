@@ -13,8 +13,7 @@ class Image:
     def update_resolution(self, new_resolution):
         self.resolution = new_resolution
         return self.resolution
-        
-        
+  
     def __str__(self):
         return f"The image '{self.title}' has resolution like {self.resolution} and its extension is {self.extension}"
         
