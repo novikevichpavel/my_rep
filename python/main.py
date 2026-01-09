@@ -1226,20 +1226,26 @@
 # his_car.stop()
 
 
-import json
+# import json
 
-class CountryData:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.file_data = self.get_data()
-        self.country = self.file_data['country']
+# class CountryData:
+#     def __init__(self, file_path):
+#         self.file_path = file_path
+#         self.file_data = self.get_data()
+#         self.country = self.file_data['country']
 
-    def get_data(self):
-        with open(self.file_path, "r") as e:
-            return json.load(e)
+#     def get_data(self):
+#         with open(self.file_path, "r") as e:
+#             return json.load(e)
         
 
-path_f = CountryData("python/country.json")
-print(path_f.get_data())
-print(path_f.country)
+# path_f = CountryData("python/country.json")
+# print(path_f.get_data())
+# print(path_f.country)
 
+
+counter = 0 
+
+while (counter < 1000000000):
+    counter+=1
+    print(counter)
